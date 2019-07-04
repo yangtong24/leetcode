@@ -10,7 +10,7 @@ package com.yt.linklist;
  */
 public class MiddleNodeSolution {
 
-    public ListNode middleNode(ListNode head) {
+    private ListNode middleNode(ListNode head) {
         ListNode cur = head;
         while (cur != null && cur.next != null) {
             cur = cur.next.next;
@@ -18,7 +18,28 @@ public class MiddleNodeSolution {
         }
         return head;
     }
-  
+
+    public static void main(String[] args) {
+        MiddleNodeSolution solution = new MiddleNodeSolution();
+
+        ListNode listNode = new ListNode(1);
+        ListNode listNode2 = new ListNode(2);
+        ListNode listNode3 = new ListNode(3);
+        ListNode listNode4 = new ListNode(4);
+        ListNode listNode5 = new ListNode(5);
+
+        listNode.next = listNode2;
+        listNode2.next = listNode3;
+        listNode3.next = listNode4;
+        listNode4.next = listNode5;
+
+        ListNode middleNode = solution.middleNode(listNode);
+        while (middleNode != null) {
+            System.out.println(middleNode.val);
+            middleNode = middleNode.next;
+        }
+
+    }
 
 
 }
