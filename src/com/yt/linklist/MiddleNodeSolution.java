@@ -11,9 +11,9 @@ package com.yt.linklist;
 public class MiddleNodeSolution {
 
     private ListNode middleNode(ListNode head) {
-        ListNode cur = head;
-        while (cur != null && cur.next != null) {
-            cur = cur.next.next;
+        ListNode dummyHead = head;
+        while (dummyHead != null && dummyHead.next != null) {
+            dummyHead = dummyHead.next.next;
             head = head.next;
         }
         return head;
