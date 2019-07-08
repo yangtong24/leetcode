@@ -9,9 +9,12 @@ public class ListNodeUtil {
 
 
     public static ListNode middleNode(ListNode head) {
-        ListNode cur = head;
-        while (cur.next != null && cur.next.next != null) {
-            cur = cur.next.next;
+        if (head == null) {
+            return null;
+        }
+        ListNode dummyHead = head;
+        while (dummyHead.next != null && dummyHead.next.next != null) {
+            dummyHead = dummyHead.next.next;
             head = head.next;
         }
         return head;
