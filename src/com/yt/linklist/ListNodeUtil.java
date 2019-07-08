@@ -10,21 +10,11 @@ public class ListNodeUtil {
 
     public static ListNode middleNode(ListNode head) {
         ListNode cur = head;
-        while (cur != null && cur.next != null) {
+        while (cur.next != null && cur.next.next != null) {
             cur = cur.next.next;
             head = head.next;
         }
         return head;
-    }
-
-    public static ListNode lastNode(ListNode head) {
-        ListNode cur = head;
-        while (head != null) {
-            cur = head;
-            head = head.next;
-        }
-
-        return cur;
     }
 
 }

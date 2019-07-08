@@ -7,28 +7,41 @@ package com.yt.linklist;
  */
 public class SortSingleListNode {
 
-    /**
-     * 思路还是找到链表中间， 递归merge
-     *
-     * @param head
-     * @return
-     */
-    private ListNode sort(ListNode head) {
-        ListNode middle = ListNodeUtil.middleNode(head);
-        ListNode last = ListNodeUtil.lastNode(head);
-        sort(head, middle);
-        sort(middle, last);
-        merge(head, middle, last);
-        return null;
+
+    public static ListNode sortList(ListNode head) {
+        //采用归并排序
+        if (head == null || head.next == null) {
+            return head;
+        }
+        //获取中间结点
+        ListNode mid = ListNodeUtil.middleNode(head);
+
+        ListNode right = mid.next;
+
+        mid.next = null;
+
+        //合并
+        return mergeSort(sortList(head), sortList(right));
     }
 
-    private void merge(ListNode head, ListNode middle, ListNode last) {
+    public static ListNode mergeSort(ListNode first, ListNode second) {
 
+        ListNode dummyHead, curr;
+        dummyHead = new ListNode();
+        curr = dummyHead;
+
+        while (first != null && second != null) {
+            if (first.val <= second.val) {
+                curr.next = first;
+                first = first.next;
+            } else {
+                curr.next = second;
+                second = second.next;
+            }
+            curr = curr.next;
+        }
+
+        curr.next = (first == null) ? second : first;
+        return dummyHead.next;
     }
-
-    private void sort(ListNode head, ListNode midddle) {
-
-    }
-
-
 }
