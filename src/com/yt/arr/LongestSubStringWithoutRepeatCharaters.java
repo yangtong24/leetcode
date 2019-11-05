@@ -59,7 +59,8 @@ public class LongestSubStringWithoutRepeatCharaters {
     /**
      * 官方给出的最优解
      *
-     * 不用回溯
+     * 不用回溯(map只负责记录索引位置，以及是否重复)
+     * 使用hi, lo两个指针来计算最大长度，并且有重复的时候更新hi
      *
      *
      * @param s
