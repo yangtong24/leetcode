@@ -1,5 +1,6 @@
 package com.yt.arr;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -44,4 +45,34 @@ public class TwoSumEqualsTarget {
         }
         throw new RuntimeException("target arr is not exists");
     }
+
+    public static int[] twoSum2(int[] nums, int target) {
+        // 先排序
+        Arrays.sort(nums);
+
+        int i = 0;
+        int j = nums.length - 1;
+        while (i < j) {
+            int sum = nums[i] + nums[j];
+            if (sum == target) {
+                return new int[]{nums[i], nums[j]};
+            } else if (sum < 0) {
+                while (i < j && nums[i] == nums[++i]) ;
+            } else {
+                while (i < j && nums[j] == nums[--j]) ;
+            }
+
+        }
+        throw new RuntimeException("target arr is not exists");
+    }
+
+    public static void main(String[] args) {
+        int nums[] = {2, 13, 42, 5, 7, 121, 15};
+        int[] res = twoSum2(nums, 9);
+        for (int ele : res) {
+            System.out.print(ele + " ");
+        }
+    }
+
+
 }

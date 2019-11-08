@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * @Author : Tong.Yang11@geely.com
  * @Date : 2019/11/05 17:24
- * @Description : no.2o
+ * @Description : no.20
  * https://leetcode-cn.com/problems/valid-parentheses/
  * 给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串，判断字符串是否有效。
  * <p>

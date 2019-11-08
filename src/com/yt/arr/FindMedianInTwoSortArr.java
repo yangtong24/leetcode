@@ -26,6 +26,12 @@ package com.yt.arr;
  */
 public class FindMedianInTwoSortArr {
 
+    /**
+     * 先归并再操作
+     * @param nums1
+     * @param nums2
+     * @return
+     */
     public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
 
         int[] result = mergeTwoSortArrays(nums1, nums2);
@@ -65,6 +71,12 @@ public class FindMedianInTwoSortArr {
         return result;
     }
 
+    /**
+     * 二分法
+     * @param A
+     * @param B
+     * @return
+     */
     public double findMedianSortedArrays2(int[] A, int[] B) {
         int m = A.length;
         int n = B.length;
